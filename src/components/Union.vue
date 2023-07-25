@@ -17,7 +17,7 @@
         <v-col cols="12" md="12">
           <v-text-field v-model="key" label="Key Column" hide-details />
         </v-col>
-        <v-col cols="6" md="12">
+        <v-col cols="12" md="12">
           <v-btn color="primary" block @click="merge()">Union</v-btn>
         </v-col>
         <v-col cols="12" md="12">

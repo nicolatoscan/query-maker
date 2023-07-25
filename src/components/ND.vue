@@ -11,7 +11,7 @@
         <v-col cols="12" md="6">
           <v-text-field v-model="table" label="Table" hide-details />
         </v-col>
-        <v-col cols="6" md="12">
+        <v-col cols="12" md="12">
           <v-btn color="primary" block @click="nd()">Generate ND</v-btn>
         </v-col>
         <v-col cols="12" md="12">

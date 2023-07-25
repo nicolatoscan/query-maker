@@ -14,7 +14,7 @@
         <v-col cols="12" md="6">
           <v-text-field v-model="tableTo" label="Table To" hide-details />
         </v-col>
-        <v-col cols="6" md="12">
+        <v-col cols="12" md="12">
           <v-btn color="primary" block @click="merge()">Merge</v-btn>
         </v-col>
         <v-col cols="12" md="12">
