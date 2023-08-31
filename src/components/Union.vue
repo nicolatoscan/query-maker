@@ -21,7 +21,7 @@
           <v-btn color="primary" block @click="merge()">Union</v-btn>
         </v-col>
         <v-col cols="12" md="12">
-          <v-textarea v-model="result" disabled :rows="10" hide-details />
+          <v-textarea v-model="result" :rows="10" hide-details />
         </v-col>
 
       </v-row>
@@ -45,10 +45,13 @@ const emit = defineEmits<{
 }>()
 
 function queryUnion(columnsA: Column[], columnsB: Column[], tableA: string, tableB: string, key: string): string {
-  const allFields  =  [ ...new Set([...columnsA, ...columnsB]) ];
+  const allFields  =  [ ...new Set([...columnsA, ...columnsB].map(x => JSON.stringify(x))) ].map(x => JSON.parse(x));
   const allNames  = allFields.map(f => f.name);
   const namesA = columnsA.map(f => f.name);
   const namesB = columnsB.map(f => f.name);
+
+  console.log(allFields, allNames, namesA, namesB)
+
   return `SELECT\n` +
     allFields.map(f => `\t${mapTypes(f.type, true)} AS ${f.name}`).join(',\n') +
     `\n\nUNION ALL\n\n` +
